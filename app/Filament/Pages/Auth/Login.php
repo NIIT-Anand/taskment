@@ -1,0 +1,23 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Filament\Pages\Auth;
+
+use Filament\Pages\Auth\Login as BasePage;
+
+final class Login extends BasePage
+{
+    public function mount(): void
+    {
+        parent::mount();
+
+        if (app()->isLocal()) {
+            $this->form->fill([
+                'email' => 'admin@example.com',
+                'password' => 'password',
+                'remember' => true,
+            ]);
+        }
+    }
+}
